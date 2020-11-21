@@ -29,7 +29,7 @@ def index(request):
     """
     # 返回登陆页面
     if request.method == "GET":
-        return render(request,"index.html")
+        return render(request,"login.html")
 
     #处理登录数据
     if request.method == "POST":
@@ -38,7 +38,7 @@ def index(request):
 
         print(username,password)
         if username =="" or password == "":
-            return render(request, "index.html", {"error": "The username or password is empty !!"})
+            return render(request, "login.html", {"error": "The username or password is empty !!"})
 
         user = auth.authenticate(username=username, password=password)
         print("====>", user)
@@ -48,10 +48,12 @@ def index(request):
             # return render(request, "manage.html")
             # return HttpResponseRedirect("/manage/")
             response = HttpResponseRedirect('/manage/')
-            response.set_cookie("user", username, 3600)  # F12的application的cookies, 设置cookies多久后过期
+            # response.set_cookie("user", username, 3600)  # F12的application的cookies, 设置cookies多久后过期.key是user,value是登录名
+            # 直接设置cookie到浏览器不安全，应该设置session id,session id对应的数据写在数据库里面的
+            request.session['user'] = username
             return response
         else:
-            return render(request, 'index.html', {"error": "Wrong user name or password！！"})
+            return render(request, 'login.html', {"error": "Wrong user name or password！！"})
 
         # if username =="" or password == "":
         #     return render(request, "index.html", {"error": "The username or password is empty !!"})
@@ -68,7 +70,9 @@ def manage(request):
     :param request:
     :return:
     """
-    return render(request, "manage.html")
+    # username = request.COOKIES.get('user', '')
+    username = request.session.get('user', '')
+    return render(request, "manage2.html", {'user':username})
 
 @login_required
 def logout(request):
