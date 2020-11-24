@@ -14,15 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from project_manage import views
+from django.urls import path, include
+from project_manage.views import login_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello),
-    path('', views.index), # 不输入详细路径时，直接去到index页面
-    path('index/', views.index),
+    path('hello/', login_views.hello),
+    path('', login_views.index), # 不输入详细路径时，直接去到index页面
+    path('index/', login_views.index),
     # path('login/', views.login)
-    path('manage/', views.manage),
-    # path('/logout/', views.logout),
+    # path('manage/', views.manage),
+    # path('/manage/add', views.manage),
+    # path('/manage/edit', views.manage),
+    # path('/manage/delete', views.manage),
+    path('manage/', include('project_manage.urls')),  # 如果匹配到manage路径，直接project_manage.urls找路径
+
+    # path('/logout/', login_views.logout),
 ]
