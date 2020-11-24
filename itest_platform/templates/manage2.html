@@ -249,94 +249,45 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">ASOS Ridley High Waist</h5>
-                                                            <span class="text-muted font-13">07 April 2018</span>
+                                                            <h5 class="font-14 my-1 font-weight-normal">名称</h5>
                                                         </td>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$79.49</h5>
-                                                            <span class="text-muted font-13">Price</span>
+                                                            <h5 class="font-14 my-1 font-weight-normal">描述9</h5>
                                                         </td>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">82</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
+                                                            <h5 class="font-14 my-1 font-weight-normal">状态</h5>
                                                         </td>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$6,518.18</h5>
-                                                            <span class="text-muted font-13">Amount</span>
+                                                            <h5 class="font-14 my-1 font-weight-normal">创建时间</h5>
+                                                        </td>
+                                                         <td>
+                                                            <h5 class="font-14 my-1 font-weight-normal">操作</h5>
                                                         </td>
                                                     </tr>
+                                                    {% for p in projects %}
                                                     <tr>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">Marco Lightweight Shirt</h5>
-                                                            <span class="text-muted font-13">25 March 2018</span>
+                                                            <span class="text-muted font-13">{{p.name}}</span>
                                                         </td>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$128.50</h5>
-                                                            <span class="text-muted font-13">Price</span>
+                                                            <span class="text-muted font-13">{{p.describe}}</span>
                                                         </td>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">37</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
+                                                            {% if p.status == True %}
+                                                            <span class="text-muted font-13">开启</span>
+                                                            {% else %}
+                                                            <span class="text-muted font-13">关闭</span>
+                                                            {% endif%}
                                                         </td>
                                                         <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$4,754.50</h5>
-                                                            <span class="text-muted font-13">Amount</span>
+                                                            <span class="text-muted font-13">{{p.create_time | date:"Y-m-s H:i:s"}}</span>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-link float-right mb-3">编辑</a>
+                                                            <a class="btn btn-sm btn-link float-right mb-3">删除</a>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">Half Sleeve Shirt</h5>
-                                                            <span class="text-muted font-13">17 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$39.99</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">64</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$2,559.36</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">Lightweight Jacket</h5>
-                                                            <span class="text-muted font-13">12 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$20.00</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">184</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$3,680.00</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">Marco Shoes</h5>
-                                                            <span class="text-muted font-13">05 March 2018</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$28.49</h5>
-                                                            <span class="text-muted font-13">Price</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">69</h5>
-                                                            <span class="text-muted font-13">Quantity</span>
-                                                        </td>
-                                                        <td>
-                                                            <h5 class="font-14 my-1 font-weight-normal">$1,965.81</h5>
-                                                            <span class="text-muted font-13">Amount</span>
-                                                        </td>
-                                                    </tr>
+                                                    {% endfor %}
 
                                                 </tbody>
                                             </table>

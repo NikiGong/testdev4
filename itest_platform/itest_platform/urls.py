@@ -20,6 +20,7 @@ from project_manage import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.hello),
+    path('', views.index), # 不输入详细路径时，直接去到index页面
     path('index/', views.index),
     # path('login/', views.login)
     path('manage/', views.manage),
